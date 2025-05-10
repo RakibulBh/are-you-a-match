@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@next/font": "^14.2.15",
+    "@types/react-dropzone": "^4.2.2",
     "framer-motion": "^12.10.5",
-    "lucide-react": "^0.509.0"
+    "lucide-react": "^0.509.0",
+    "react-dropzone": "^14.3.8"
   }
 }

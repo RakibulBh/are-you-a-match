@@ -1,39 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import {
-  Heart,
-  Menu,
-  ChevronRight,
-  Home,
-  Settings,
-  Users,
-  Info,
-} from "lucide-react";
+import { Heart, Menu, ChevronRight, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const navList = [
-    {
-      name: "Home",
-      href: "/",
-      icon: <Home size={16} />,
-    },
-    {
-      name: "Features",
-      href: "/features",
-      icon: <Settings size={16} />,
-    },
-    {
-      name: "Pricing",
-      href: "/pricing",
-      icon: <Users size={16} />,
-    },
-    {
-      name: "About",
-      href: "/about",
-      icon: <Info size={16} />,
-    },
-  ];
+  const router = useRouter();
 
   return (
     <div className="absolute top-4 left-0 w-full flex justify-center z-50">
@@ -63,33 +35,27 @@ const Navbar = () => {
 
           {/* Navbar items */}
           <div className="hidden md:flex items-center space-x-6">
-            {navList.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/ats"
+                className="text-gray-700 font-medium hover:text-orange-500 transition-colors flex items-center gap-1 font-poppins text-sm"
               >
-                <Link
-                  href={item.href}
-                  className="text-gray-700 font-medium hover:text-orange-500 transition-colors flex items-center gap-1 font-poppins text-sm"
-                >
-                  {item.icon}
-                  <span>{item.name}</span>
-                </Link>
-              </motion.div>
-            ))}
+                <FileText size={16} />
+                <span>ATS Scanner</span>
+              </Link>
+            </motion.div>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/signup"
+              <button
+                onClick={() => router.push("/ats")}
                 className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-full font-medium transition-all flex items-center gap-1 font-poppins"
               >
                 Get Started
                 <ChevronRight size={16} />
-              </Link>
+              </button>
             </motion.div>
           </div>
 

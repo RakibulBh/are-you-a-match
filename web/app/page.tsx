@@ -3,8 +3,11 @@
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { CreditCard, ChevronRight, Sparkles, Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   // Variants for staggered animations
   const container = {
     hidden: { opacity: 0 },
@@ -78,6 +81,7 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push("/ats")}
                 className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-all shadow-lg shadow-orange-300/30 text-lg font-poppins flex items-center justify-center gap-2"
               >
                 <span>Get Started Free</span>
